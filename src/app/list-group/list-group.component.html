@@ -1,6 +1,6 @@
-<div>{{header}}</div>
+<div>{{listType}}</div>
 <div *ngFor="let item of items">
-    <a href="{{item.url}}">
-        {{item.text}}
+    <a href="{{listType.toLowerCase() + '/' + item.id}}">
+        {{item.name}}
     </a>
 </div>

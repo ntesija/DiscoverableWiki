@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 export class ListItem {
-    text: string;
-    url: string;
+    id: number;
+    name: string;
 }
 
 @Component({
@@ -11,7 +11,7 @@ export class ListItem {
     styleUrls: ['./list-group.component.css']
 })
 export class ListGroupComponent implements OnInit {
-    @Input() header: string;
+    @Input() listType: string;
     @Input() items: ListItem[];
 
     ngOnInit() {
