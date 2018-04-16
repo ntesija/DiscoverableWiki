@@ -3,6 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ListItem {
     id: number;
     name: string;
+    description: string;
 }
 
 @Component({

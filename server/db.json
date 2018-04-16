@@ -1,5 +1,9 @@
 {
     "planets": [
-        { "id": 1, "name": "N'Zola" }
+        { 
+            "id": 1, 
+            "name": "N'Zola", 
+            "description": "Planet"
+        }
     ]
 }

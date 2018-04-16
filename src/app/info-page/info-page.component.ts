@@ -24,7 +24,6 @@ export class InfoPageComponent implements OnInit {
                 return this.http.get(`api/planets/${id}`);
             }).subscribe((item: ListItem) => {
                 this.info = item;
-                console.log(this.info);
             })
     }
 
