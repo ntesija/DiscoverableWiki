@@ -1,5 +1,5 @@
 <div>{{listType}}</div>
-<div *ngFor="let item of items">
+<div *ngFor="let item of items" class="list-link">
     <a href="{{listType.toLowerCase() + '/' + item.id}}">
         {{item.name}}
     </a>

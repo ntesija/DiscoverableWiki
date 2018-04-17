@@ -1,3 +1,17 @@
 .navbar {
     padding: 10px;
 }
+
+.navbar a {
+    padding: 15px;
+}
+
+.content {
+    width: 100%;
+    padding: 25px;
+}
+
+.navbar a.active-link {
+    border-bottom: #680e68;
+    border-bottom-style: solid;
+}

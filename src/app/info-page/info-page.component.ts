@@ -21,7 +21,7 @@ export class InfoPageComponent implements OnInit {
         this.route.paramMap
             .switchMap((params: ParamMap, index: number) => {
                 const id = params.get('id');
-                return this.http.get(`api/planets/${id}`);
+                return this.http.get(`api/${this.route.routeConfig.path.split('/')[0]}/${id}`);
             }).subscribe((item: ListItem) => {
                 this.info = item;
             })

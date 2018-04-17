@@ -1,9 +1,33 @@
 {
+    "colonies": [
+        {
+            "id": 1,
+            "name": "Drail",
+            "description": "Backwater trading colony. Has a saloon and a shitty ship dealer. No really, it's called the 'Shitty Ship Shop'."
+        }
+    ],
     "planets": [
         { 
             "id": 1, 
             "name": "N'Zola", 
-            "description": "Planet"
+            "description": "Starting Planet"
+        },
+        { 
+            "id": 2, 
+            "name": "Gorgo", 
+            "description": "To Planet"
+        },
+        { 
+            "id": 3, 
+            "name": "No-Zama", 
+            "description": "Forest Plant with Lumberyard"
+        }
+    ],
+    "factions": [
+        {
+            "id": 1,
+            "name": "The Treatcherous Treasure Troup",
+            "description": "Pirates"
         }
     ]
 }

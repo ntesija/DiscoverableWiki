@@ -5,4 +5,9 @@
     padding: 15px;
     background-color: #fff;
     flex-wrap: wrap;
+    margin-right: 20px;
+}
+
+.list-link {
+    margin-top: 10px;
 }

@@ -1,5 +1,5 @@
 <div class="info-card"
      *ngFor="let item of items"
      (click)="goToPage(item.id)">
-     {{item.name}}
+     <span class="info-card-header">{{item.name}}</span>
 </div>

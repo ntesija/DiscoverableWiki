@@ -8,13 +8,18 @@ import { ListGroupComponent } from './list-group/list-group.component';
 import { InfoPageComponent } from './info-page/info-page.component';
 import { HomeComponent } from './home/home.component';
 import { InfoListComponent } from './info-list/info-list.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const appRoutes: Routes = [
     { path: 'planets/:id', component: InfoPageComponent },
     { path: 'planets', component: InfoListComponent, pathMatch: 'full' },
+    { path: 'colonies/:id', component: InfoPageComponent },
+    { path: 'colonies', component: InfoListComponent, pathMatch: 'full' },
+    { path: 'factions/:id', component: InfoPageComponent },
+    { path: 'factions', component: InfoListComponent, pathMatch: 'full' },
     { path: 'home', component: HomeComponent },
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: '**', component: AppComponent }
+    { path: '**', component: NotFoundComponent }
 ]
 
 @NgModule({
@@ -23,7 +28,8 @@ const appRoutes: Routes = [
         ListGroupComponent,
         InfoPageComponent,
         HomeComponent,
-        InfoListComponent
+        InfoListComponent,
+        NotFoundComponent
     ],
     imports: [
         BrowserModule,
