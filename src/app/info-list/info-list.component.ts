@@ -10,6 +10,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class InfoListComponent implements OnInit {
     public items: ListItem[];
+    public type: string;
 
     constructor(
         private http: HttpClient,
@@ -17,13 +18,22 @@ export class InfoListComponent implements OnInit {
         private router: Router) { }
 
     ngOnInit() {
-        this.http.get(`api/${this.route.routeConfig.path}`)
+        this.type = this.route.routeConfig.path;
+        this.http.get(`api/${this.type}`)
             .subscribe((items: ListItem[]) => {
                 this.items = items;
             });
     }
 
     public goToPage(id: string) {
-        this.router.navigate([`${this.route.routeConfig.path}/${id}`]);
+        this.router.navigate([`${this.type}/${id}`]);
     }
+
+    public getImageSrc(item: ListItem) {
+        if (item.image) {
+            return `assets/images/${this.type}/${item.image}`;
+        }
+
+        return `assets/images/${this.type}/fallback.png`;
+    } 
 }

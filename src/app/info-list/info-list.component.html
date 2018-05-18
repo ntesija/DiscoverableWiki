@@ -2,4 +2,5 @@
      *ngFor="let item of items"
      (click)="goToPage(item.id)">
      <span class="info-card-header">{{item.name}}</span>
+     <img [src]="getImageSrc(item)">
 </div>

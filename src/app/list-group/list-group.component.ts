@@ -4,6 +4,7 @@ export class ListItem {
     id: number;
     name: string;
     description: string;
+    image?: string;
 }
 
 @Component({

@@ -1,33 +1,38 @@
 {
-    "colonies": [
-        {
-            "id": 1,
-            "name": "Drail",
-            "description": "Backwater trading colony. Has a saloon and a shitty ship dealer. No really, it's called the 'Shitty Ship Shop'."
-        }
-    ],
-    "planets": [
-        { 
-            "id": 1, 
-            "name": "N'Zola", 
-            "description": "Starting Planet"
-        },
-        { 
-            "id": 2, 
-            "name": "Gorgo", 
-            "description": "To Planet"
-        },
-        { 
-            "id": 3, 
-            "name": "No-Zama", 
-            "description": "Forest Plant with Lumberyard"
-        }
-    ],
-    "factions": [
-        {
-            "id": 1,
-            "name": "The Treatcherous Treasure Troup",
-            "description": "Pirates"
-        }
-    ]
+  "colonies": [
+    {
+      "id": 1,
+      "name": "Drail",
+      "description": "Backwater trading colony. Has a saloon and a shitty ship dealer. No really, it's called the 'Shitty Ship Shop'.",
+      "image": "drail.png"
+    }
+  ],
+  "planets": [
+    {
+      "id": 1,
+      "name": "N'Zola",
+      "description": "Starting Planet",
+      "image": "nzola.png"
+    },
+    {
+      "id": 2,
+      "name": "Gorgo",
+      "description": "To Planet",
+      "image": "gorgo.png"
+    },
+    {
+      "id": 3,
+      "name": "No-Zama",
+      "description": "Forest Plant with Lumberyard",
+      "image": "nozama.png"
+    }
+  ],
+  "factions": [
+    {
+      "id": 1,
+      "name": "The Treatcherous Treasure Troup",
+      "description": "Pirates",
+      "image": "ttt.png"
+    }
+  ]
 }
