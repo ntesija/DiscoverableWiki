@@ -9,6 +9,7 @@ import { InfoPageComponent } from './info-page/info-page.component';
 import { HomeComponent } from './home/home.component';
 import { InfoListComponent } from './info-list/info-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ImageService } from './services/image-service.service';
 
 const appRoutes: Routes = [
     { path: 'planets/:id', component: InfoPageComponent },
@@ -36,7 +37,9 @@ const appRoutes: Routes = [
         HttpClientModule,
         RouterModule.forRoot(appRoutes)
     ],
-    providers: [],
+    providers: [
+        ImageService
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule { }

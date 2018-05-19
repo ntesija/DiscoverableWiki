@@ -5,6 +5,7 @@ export class ListItem {
     name: string;
     description: string;
     image?: string;
+    discovered: boolean;
 }
 
 @Component({

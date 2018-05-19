@@ -1,8 +1,11 @@
 <div class="content">
-    <div class="header">
-        {{info?.name}}
-    </div>
-    <div class="description">
-        {{info?.description}}
+    <img [src]="imageService.getImageSrc(info, type)">
+    <div>
+        <div class="header">
+            {{info?.name}}
+        </div>
+        <div class="description">
+            {{info?.description}}
+        </div>
     </div>
 </div>

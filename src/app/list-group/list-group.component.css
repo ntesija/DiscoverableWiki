@@ -11,3 +11,9 @@
 .list-link {
     margin-top: 10px;
 }
+
+span {
+    color: #ccc;
+    font-size: 18px;
+    cursor: not-allowed;
+}

@@ -1,6 +1,7 @@
 <div class="info-card"
+     [ngClass]="{'disabled': !item.discovered}"
      *ngFor="let item of items"
-     (click)="goToPage(item.id)">
-     <span class="info-card-header">{{item.name}}</span>
-     <img [src]="getImageSrc(item)">
+     (click)="item.discovered ? goToPage(item.id) : null">
+    <span class="info-card-header">{{item.discovered ? item.name : 'Unknown'}}</span>
+    <img [src]="imageService.getImageSrc(item, type)">
 </div>

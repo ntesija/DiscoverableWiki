@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ListItem } from '../list-group/list-group.component';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ImageService } from '../services/image-service.service';
 
 @Component({
     selector: 'info-list',
@@ -15,7 +16,8 @@ export class InfoListComponent implements OnInit {
     constructor(
         private http: HttpClient,
         private route: ActivatedRoute,
-        private router: Router) { }
+        private router: Router,
+        public imageService: ImageService) { }
 
     ngOnInit() {
         this.type = this.route.routeConfig.path;
@@ -28,12 +30,4 @@ export class InfoListComponent implements OnInit {
     public goToPage(id: string) {
         this.router.navigate([`${this.type}/${id}`]);
     }
-
-    public getImageSrc(item: ListItem) {
-        if (item.image) {
-            return `assets/images/${this.type}/${item.image}`;
-        }
-
-        return `assets/images/${this.type}/fallback.png`;
-    } 
 }

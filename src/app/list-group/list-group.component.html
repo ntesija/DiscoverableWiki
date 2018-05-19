@@ -1,6 +1,7 @@
 <div>{{listType}}</div>
 <div *ngFor="let item of items" class="list-link">
-    <a href="{{listType.toLowerCase() + '/' + item.id}}">
+    <span *ngIf="!item.discovered">Unknown</span>
+    <a *ngIf="item.discovered" href="{{listType.toLowerCase() + '/' + item.id}}">
         {{item.name}}
     </a>
 </div>
