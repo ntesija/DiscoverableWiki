@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 export class ListItem {
-    id: number;
+    id?: number;
     name: string;
     description: string;
     image?: string;

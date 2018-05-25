@@ -5,3 +5,8 @@
     <span class="info-card-header">{{item.discovered ? item.name : 'Unknown'}}</span>
     <img [src]="imageService.getImageSrc(item, type)">
 </div>
+<div class="info-card"
+    (click)="goToPage('new')">
+   <span class="info-card-header">Add</span>
+   <img [src]="imageService.getImageSrcFromFile('add.png', 'common')">
+</div>

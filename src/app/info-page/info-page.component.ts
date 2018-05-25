@@ -5,7 +5,8 @@ import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/switchMap';
 import { ImageService } from '../services/image-service.service';
-import {NgForm} from '@angular/forms';
+import { NgForm } from '@angular/forms';
+import { of } from 'rxjs/observable/of';
 
 @Component({
     selector: 'info-page',
@@ -14,10 +15,11 @@ import {NgForm} from '@angular/forms';
 })
 export class InfoPageComponent implements OnInit {
     public hiddenData: ListItem;
-
     public info: ListItem;
     public type: string;
     public isEditing: boolean;
+
+    private isNew: boolean;
 
     private unknownItem: ListItem = {
         description: 'No description available',
@@ -27,19 +29,33 @@ export class InfoPageComponent implements OnInit {
         name: 'Unknown'
     }
 
+    private newItem: ListItem = {
+        description: '',
+        discovered: false,
+        image: 'fallback.png',
+        name: ''
+    }
+
     constructor(
         private http: HttpClient,
         private route: ActivatedRoute,
         public imageService: ImageService) {
-            this.isEditing = false;
-        }
+        this.isEditing = false;
+        this.isNew = false;
+    }
 
     ngOnInit() {
         this.route.paramMap
             .switchMap((params: ParamMap, index: number) => {
                 const id = params.get('id');
                 this.type = this.route.routeConfig.path.split('/')[0];
-                return this.http.get(`api/${this.type}/${id}`);
+                if (id !== 'new') {
+                    return this.http.get(`api/${this.type}/${id}`);
+                } else {
+                    this.isEditing = true;
+                    this.isNew = true;
+                    return Observable.of(this.newItem)
+                }
             }).subscribe((item: ListItem) => {
                 this.setData(item);
             }, () => {
@@ -55,10 +71,17 @@ export class InfoPageComponent implements OnInit {
     public onSubmit(formData: NgForm) {
         this.isEditing = false;
 
-        return this.http.put<ListItem>(`api/${this.type}/${this.hiddenData.id}`, this.hiddenData)
-            .subscribe((item: ListItem) => {
-                this.setData(item);
-            });
+        if (this.isNew) {
+            return this.http.post<ListItem>(`api/${this.type}`, this.hiddenData)
+                .subscribe((item: ListItem) => {
+                    this.setData(item);
+                });
+        } else {
+            return this.http.put<ListItem>(`api/${this.type}/${this.hiddenData.id}`, this.hiddenData)
+                .subscribe((item: ListItem) => {
+                    this.setData(item);
+                });
+        }
     }
 
     private setData(item: ListItem) {
