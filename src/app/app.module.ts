@@ -10,6 +10,7 @@ import { HomeComponent } from './home/home.component';
 import { InfoListComponent } from './info-list/info-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ImageService } from './services/image-service.service';
+import { FormsModule } from '@angular/forms';
 
 const appRoutes: Routes = [
     { path: 'planets/:id', component: InfoPageComponent },
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     imports: [
         BrowserModule,
         HttpClientModule,
-        RouterModule.forRoot(appRoutes)
+        RouterModule.forRoot(appRoutes),
+        FormsModule
     ],
     providers: [
         ImageService

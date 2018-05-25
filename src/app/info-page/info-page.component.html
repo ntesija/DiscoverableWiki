@@ -1,11 +1,28 @@
 <div class="content">
-    <img [src]="imageService.getImageSrc(info, type)">
     <div>
+        <a (click)="this.edit()">Edit</a>
+    </div>
+    <img [src]="imageService.getImageSrc(info, type)">
+    <div *ngIf="!this.isEditing">
         <div class="header">
             {{info?.name}}
         </div>
         <div class="description">
             {{info?.description}}
         </div>
+    </div>
+    <div *ngIf="this.isEditing" >
+        <form #f="ngForm" (ngSubmit)="this.onSubmit(f)">
+            <input name="name"
+                   [(ngModel)]="hiddenData.name"
+                   class="header">
+            <input name="description"
+                   [(ngModel)]="hiddenData.description"
+                   class="description">
+            <input type="checkbox" name="discovered" [(ngModel)]="hiddenData.discovered">
+            <button>
+                Submit
+            </button>
+        </form>
     </div>
 </div>

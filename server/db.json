@@ -13,14 +13,14 @@
       "name": "N'Zola",
       "description": "Starting Planet",
       "image": "nzola.png",
-      "discovered": true
+      "discovered": false
     },
     {
       "id": 2,
       "name": "Gorgo",
       "description": "To Planet",
       "image": "gorgo.png",
-      "discovered": false
+      "discovered": true
     },
     {
       "id": 3,
