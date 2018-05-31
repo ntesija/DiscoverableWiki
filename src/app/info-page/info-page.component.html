@@ -1,9 +1,10 @@
 <div class="content">
-    <div>
-        <a (click)="this.edit()">Edit</a>
+    <div class="image">
+        <img [src]="imageService.getImageSrc(info, type)" *ngIf="!this.isEditing">
+        <img [src]="imageService.getImageSrc(hiddenData, type, this.isEditing)" *ngIf="this.isEditing">
     </div>
-    <img [src]="imageService.getImageSrc(info, type)">
-    <div *ngIf="!this.isEditing">
+    <div *ngIf="!this.isEditing"
+         class="info-body">
         <div class="header">
             {{info?.name}}
         </div>
@@ -11,18 +12,35 @@
             {{info?.description}}
         </div>
     </div>
-    <div *ngIf="this.isEditing" >
-        <form #f="ngForm" (ngSubmit)="this.onSubmit(f)">
+    <div *ngIf="this.isEditing"
+         class="info-body">
+        <form #f="ngForm"
+              (ngSubmit)="this.onSubmit(f)">
             <input name="name"
                    [(ngModel)]="hiddenData.name"
                    class="header">
-            <input name="description"
-                   [(ngModel)]="hiddenData.description"
-                   class="description">
-            <input type="checkbox" name="discovered" [(ngModel)]="hiddenData.discovered">
-            <button>
-                Submit
-            </button>
+            <div>
+                <textarea name="description"
+                          [(ngModel)]="hiddenData.description"
+                          class="description">
+                    </textarea>
+            </div>
+            <div>
+                <label class="checkbox-label">
+                    Discovered?
+                    <input type="checkbox"
+                           name="discovered"
+                           [(ngModel)]="hiddenData.discovered">
+                </label>
+            </div>
+            <div>
+                <button>
+                    Submit
+                </button>
+            </div>
         </form>
     </div>
+    <a (click)="this.edit()"
+       class="edit"
+       *ngIf="!this.isEditing">Edit</a>
 </div>

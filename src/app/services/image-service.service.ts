@@ -6,8 +6,8 @@ export class ImageService {
 
     constructor() { }
 
-    public getImageSrc(item: ListItem, type: string): string {
-        if (item && item.image && item.discovered && type) {
+    public getImageSrc(item: ListItem, type: string, showIfUndiscovered: boolean = false): string {
+        if (item && item.image && (item.discovered || showIfUndiscovered) && type) {
             return `assets/images/${type}/${item.image}`;
         }
 
