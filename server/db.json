@@ -13,7 +13,7 @@
       "name": "N'Zola",
       "description": "Starting Planet",
       "image": "nzola.png",
-      "discovered": false
+      "discovered": true
     },
     {
       "id": 2,

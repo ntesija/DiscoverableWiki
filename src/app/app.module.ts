@@ -11,6 +11,7 @@ import { InfoListComponent } from './info-list/info-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ImageService } from './services/image-service.service';
 import { FormsModule } from '@angular/forms';
+import { NavService } from './services/nav-service.service';
 
 const appRoutes: Routes = [
     { path: 'planets/:id', component: InfoPageComponent },
@@ -40,7 +41,8 @@ const appRoutes: Routes = [
         FormsModule
     ],
     providers: [
-        ImageService
+        ImageService,
+        NavService
     ],
     bootstrap: [AppComponent]
 })

@@ -1,8 +1,6 @@
-<div class="navbar">
+<div class="navbar"  >
     <a routerLink="/home" routerLinkActive="active-link">Home</a>
-    <a routerLink="/planets" routerLinkActive="active-link">Planets</a>
-    <a routerLink="/colonies" routerLinkActive="active-link">Colonies</a>
-    <a routerLink="/factions" routerLinkActive="active-link">Factions</a>
+    <a *ngFor="let nav of navItems" [routerLink]="'/' + nav.endpoint" routerLinkActive="active-link">{{nav.title}}</a>
 </div>
 
 <div class="content">

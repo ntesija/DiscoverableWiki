@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ListItem } from '../list-group/list-group.component';
+import { NavigationItem, NavService } from '../services/nav-service.service';
+
+export class HomeNav extends NavigationItem {
+    listItems?: ListItem[];
+}
 
 @Component({
     selector: 'home',
@@ -8,24 +13,21 @@ import { ListItem } from '../list-group/list-group.component';
     styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
-    constructor(private http: HttpClient) { }
+    public navItems: HomeNav[];
 
-    public planets: ListItem[];
-    public colonies: ListItem[];
-    public factions: ListItem[];
+    constructor(
+        private http: HttpClient,
+        navService: NavService
+    ) {
+        this.navItems = navService.getNavigationItems();
+    }
 
     ngOnInit() {
-        this.http.get('api/planets')
+        for (let nav of this.navItems) {
+            this.http.get(`api/${nav.endpoint}`)
             .subscribe((response: ListItem[]) => {
-                this.planets = response;
+                nav.listItems = response;
             });
-        this.http.get('api/colonies')
-            .subscribe((response: ListItem[]) => {
-                this.colonies = response;
-            }); 
-        this.http.get('api/factions')
-            .subscribe((response: ListItem[]) => {
-                this.factions = response;
-            });
+        }
     }
 }

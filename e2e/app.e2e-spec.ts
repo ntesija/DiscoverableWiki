@@ -1,6 +1,6 @@
 import { AppPage } from './app.po';
 
-describe('starfinder App', () => {
+describe('simpleWiki App', () => {
   let page: AppPage;
 
   beforeEach(() => {

@@ -1,14 +1,5 @@
 <list-group
-    [listType]="'Planets'"
-    [items]="planets">
-</list-group>
-
-<list-group
-    [listType]="'Colonies'"
-    [items]="colonies">
-</list-group>
-
-<list-group
-    [listType]="'Factions'"
-    [items]="factions">
+    *ngFor="let nav of navItems"
+    [listType]="nav.title"
+    [items]="nav.listItems">
 </list-group>
