@@ -11,9 +11,9 @@ import { InfoListComponent } from './info-list/info-list.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { ImageService } from './services/image-service.service';
 import { FormsModule } from '@angular/forms';
-import { NavService } from './services/nav-service.service';
+import { NavService, NavigationItem } from './services/nav-service.service';
 
-const appRoutes: Routes = [
+let appRoutes: Routes = [
     { path: 'planets/:id', component: InfoPageComponent },
     { path: 'planets', component: InfoListComponent, pathMatch: 'full' },
     { path: 'colonies/:id', component: InfoPageComponent },
@@ -46,4 +46,26 @@ const appRoutes: Routes = [
     ],
     bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+    /**
+     * The list of api endpoints available
+     */
+    private endpoints: NavigationItem[] = [
+        { endpoint: 'planets', title: 'Planets' },
+        { endpoint: 'colonies', title: 'Colonies' },
+        { endpoint: 'factions', title: 'Factions' },
+    ]
+
+    constructor(navService: NavService) {
+        navService.setNavigationItems(this.endpoints);
+
+        for (let endpoint of this.endpoints) {
+            appRoutes.push({path: `${endpoint.endpoint}/:id`, component: InfoPageComponent});
+            appRoutes.push({path: endpoint.endpoint, component: InfoListComponent, pathMatch: 'full'});
+        }
+        appRoutes.push(
+            { path: 'home', component: HomeComponent },
+            { path: '', redirectTo: '/home', pathMatch: 'full' },
+            { path: '**', component: NotFoundComponent });
+    }
+}

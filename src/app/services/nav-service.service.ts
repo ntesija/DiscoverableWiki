@@ -18,13 +18,13 @@ export class NavService {
   constructor() { }
 
     /**
-     *  The list of api endpoints to hit. This will display in the navigation and on the home component
+     *  The list of api endpoints to hit.
      */
-    private navItems: NavigationItem[] = [
-        { endpoint: 'planets', title: 'Planets' },
-        { endpoint: 'colonies', title: 'Colonies' },
-        { endpoint: 'factions', title: 'Factions' },
-    ];
+    private navItems: NavigationItem[];
+
+    public setNavigationItems(navItems: NavigationItem[]) {
+        this.navItems = navItems;
+    }
 
     public getNavigationItems(): NavigationItem[] {
         return this.navItems;
