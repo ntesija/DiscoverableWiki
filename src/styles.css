@@ -31,3 +31,29 @@ a:hover {
 .checkbox-label {
     cursor: pointer;
 }
+
+button {
+    box-sizing: border-box;
+    background: #efefef;
+    cursor: pointer;
+    border: 1px solid black;
+    border-radius: 3px;
+    padding: 5px 15px;
+}
+
+button:active {
+    border: 1px solid grey;
+}
+
+button:hover {
+    background: #f2f2f2;
+}
+
+button:focus {
+    outline: none;
+}
+
+button.secondary {
+    background: #aaa;
+    color: white;
+}

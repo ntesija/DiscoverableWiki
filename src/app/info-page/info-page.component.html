@@ -1,7 +1,9 @@
 <div class="content">
     <div class="image">
-        <img [src]="imageService.getImageSrc(info, type)" *ngIf="!this.isEditing">
-        <img [src]="imageService.getImageSrc(hiddenData, type, this.isEditing)" *ngIf="this.isEditing">
+        <img [src]="imageService.getImageSrc(info, type)"
+             *ngIf="!this.isEditing">
+        <img [src]="imageService.getImageSrc(hiddenData, type, this.isEditing)"
+             *ngIf="this.isEditing">
     </div>
     <div *ngIf="!this.isEditing"
          class="info-body">
@@ -17,10 +19,12 @@
         <form #f="ngForm"
               (ngSubmit)="this.onSubmit(f)">
             <input name="name"
+                   placeholder="Name"
                    [(ngModel)]="hiddenData.name"
                    class="header">
             <div>
                 <textarea name="description"
+                          placeholder="Description"
                           [(ngModel)]="hiddenData.description"
                           class="description">
                     </textarea>
@@ -33,9 +37,13 @@
                            [(ngModel)]="hiddenData.discovered">
                 </label>
             </div>
-            <div>
-                <button>
+            <div class="btn-container">
+                <button class="submit-btn" type="submit">
                     Submit
+                </button>
+                
+                <button class="secondary" type="button" (click)="cancel()">
+                    Cancel
                 </button>
             </div>
         </form>

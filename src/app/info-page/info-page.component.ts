@@ -1,7 +1,7 @@
-import { Component, OnInit, SimpleChanges, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { ListItem } from '../list-group/list-group.component';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { ActivatedRoute, ParamMap, Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import 'rxjs/add/operator/switchMap';
 import { ImageService } from '../services/image-service.service';
@@ -20,6 +20,7 @@ export class InfoPageComponent implements OnInit {
     public isEditing: boolean;
 
     private isNew: boolean;
+    private backup: ListItem;
 
     private unknownItem: ListItem = {
         description: 'No description available',
@@ -39,6 +40,7 @@ export class InfoPageComponent implements OnInit {
     constructor(
         private http: HttpClient,
         private route: ActivatedRoute,
+        private router: Router,
         public imageService: ImageService) {
         this.isEditing = false;
         this.isNew = false;
@@ -68,6 +70,15 @@ export class InfoPageComponent implements OnInit {
         this.isEditing = true;
     }
 
+    public cancel() {
+        if (this.isNew) {
+            this.router.navigate([this.type]);
+        } else {
+            this.setData(this.backup);
+            this.isEditing = false;
+        }
+    }
+
     public onSubmit(formData: NgForm) {
         this.isEditing = false;
 
@@ -91,5 +102,6 @@ export class InfoPageComponent implements OnInit {
             this.info = item;
         }
         this.hiddenData = item;
+        this.backup = { ...item };
     }
 }

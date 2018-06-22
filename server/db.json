@@ -11,7 +11,7 @@
     {
       "id": 1,
       "name": "N'Zola",
-      "description": "Starting Planet",
+      "description": "Starting Planet!",
       "image": "nzola.png",
       "discovered": true
     },
@@ -27,6 +27,41 @@
       "name": "No-Zama",
       "description": "Forest Plant with Lumberyard",
       "image": "nozama.png"
+    },
+    {
+      "description": "",
+      "discovered": false,
+      "image": "fallback.png",
+      "name": "",
+      "id": 4
+    },
+    {
+      "description": "",
+      "discovered": false,
+      "image": "fallback.png",
+      "name": "",
+      "id": 5
+    },
+    {
+      "description": "",
+      "discovered": false,
+      "image": "fallback.png",
+      "name": "",
+      "id": 6
+    },
+    {
+      "description": "new new",
+      "discovered": false,
+      "image": "fallback.png",
+      "name": "New",
+      "id": 7
+    },
+    {
+      "description": "Asd",
+      "discovered": true,
+      "image": "fallback.png",
+      "name": "Dsa",
+      "id": 8
     }
   ],
   "factions": [
