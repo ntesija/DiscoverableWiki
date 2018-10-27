@@ -2,6 +2,8 @@
 
 ## About
 
+This project is a simple wiki that can have discoverable content for users. My intention was to create a Starfinder campaign and reveal content to people playing as time went on.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
 ## Development server
